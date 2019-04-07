@@ -1,14 +1,12 @@
-<haed>
-    <title> My first blog </title>
+{% extends "blog/base.html" %}
 
-</head>
-<body>
+{% block content %}
     <h1>home</h1>
+    <a href="{% url 'new'%}" class="top-menu">글쓰기</a>
     {% for post in posts.all %}
         <div class="container">
             <h2><a href="post/{{post.id}}/">{{post.title}}<a></h2>
             <p>{{post.created_date}}</p>
         </div>
     {% endfor %}
-    <a href="{% url 'new'%}" class="top-menu">글쓰기</a>
-</body>
+{% endblock %}
